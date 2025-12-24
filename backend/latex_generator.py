@@ -17,9 +17,6 @@ def escape_latex(text):
         "_": r"\_",
         "{": r"\{",
         "}": r"\}",
-        "~": r"\textasciitilde{}",
-        "^": r"\textasciicircum{}",
-        "\\": r"\textbackslash{}",
     }
 
     result = str(text)
@@ -286,8 +283,8 @@ def generate_skills_section(skills_text, template_type="classic"):
         return ""
 
     # 智能检测是否需要分条
-    if '\n' in skills_text:
-        lines = [line.strip() for line in skills_text.split('\n') if line.strip()]
+    if "\n" in skills_text:
+        lines = [line.strip() for line in skills_text.split("\n") if line.strip()]
         if len(lines) > 1:
             # 多行，使用列表格式
             if template_type == "classic":
@@ -345,8 +342,8 @@ def generate_summary_section(summary_text, template_type="classic"):
         return ""
 
     # 智能检测是否需要分条
-    if '\n' in summary_text:
-        lines = [line.strip() for line in summary_text.split('\n') if line.strip()]
+    if "\n" in summary_text:
+        lines = [line.strip() for line in summary_text.split("\n") if line.strip()]
         if len(lines) > 1:
             # 多行，使用列表格式
             if template_type == "classic":
@@ -442,7 +439,9 @@ def generate_latex_resume(resume_data, template_type="classic", has_photo=False,
     module_generators = {
         "education": lambda: generate_education_section(resume_data.get("education", []), template_type),
         "workExperience": lambda: generate_work_section(resume_data.get("workExperience", []), template_type),
-        "internshipExperience": lambda: generate_internship_section(resume_data.get("internshipExperience", []), template_type),
+        "internshipExperience": lambda: generate_internship_section(
+            resume_data.get("internshipExperience", []), template_type
+        ),
         "projects": lambda: generate_project_section(resume_data.get("projects", []), template_type),
         "skills": lambda: generate_skills_section(resume_data.get("skills", ""), template_type),
         "awards": lambda: generate_awards_section(resume_data.get("awards", []), template_type),
@@ -451,7 +450,15 @@ def generate_latex_resume(resume_data, template_type="classic", has_photo=False,
 
     # 如果没有指定顺序，使用默认顺序
     if module_order is None:
-        module_order = ["education", "workExperience", "internshipExperience", "projects", "skills", "awards", "personalSummary"]
+        module_order = [
+            "education",
+            "workExperience",
+            "internshipExperience",
+            "projects",
+            "skills",
+            "awards",
+            "personalSummary",
+        ]
 
     # 组合所有部分
     latex_content = preamble + header + "\n\n"
