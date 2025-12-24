@@ -18,6 +18,11 @@ class PromptTemplates:
           "basicInfo": {
             "name": "姓名",
             "position": "目标职位",
+            "gender": "性别",
+            "age": "年龄",
+            "hometown": "籍贯"
+            "phone": "电话号码",
+            "email": "电子邮箱",
           },
           "personalSummary": "个人总结文本",
           "education": [
