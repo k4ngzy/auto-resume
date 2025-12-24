@@ -72,3 +72,13 @@ start.sh          One-click startup script
 ## ⚠️ Notes
 
 * PDF export depends on `xelatex`; please install TeX Live / MacTeX first
+
+## 🙏 Acknowledgements
+
+This project includes LaTeX resume templates adapted from the following repositories:
+
+- **template1**: based on https://github.com/hijiangtao/resume
+- **template2**: based on https://github.com/luooofan/resume
+
+Thanks to the original authors for sharing their work.
+
